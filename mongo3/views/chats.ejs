@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Whatsapps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Here are all the chats .Total chats are:<%=chats.length%></h1>
+    <form method="get" action="/chats/new">
+        <button>New chat</button>
+    </form>
+    <br>
+    <%for(chat of chats){%>
+        <div class="chat">
+            <p>from:  <b><i><%=chat.from%></i></b></p>
+            <div class="msg">
+                <p> msg: <b><i><%=chat.msg%></i></b>
+                    <form method="get" action="/chats/<%=chat._id %>/edit">
+                        <button>Edit</button>
+                    </form>
+                    <form method="post" action="/chats/<%=chat._id %>?_method=DELETE">
+                        <button>Delete</button>
+                    </form>
+                </p>
+            </div>
+            <p>Received by:<%=chat.to%></p>
+            <hr>
+            <!-- printing date -->
+            <p>Time is:<%=chat.created_at.toString().split(" ")[4] %></p>
+            <p>Date is:<%=chat.created_at.toString().split(" ")[1] %> <%=chat.created_at.toString().split(" ")[2] %> <%=chat.created_at.toString().split(" ")[3] %></p>
+            <hr>
+            
+            <!-- created_at:<%=chat.created_at%> -->
+        </div>
+        <hr>
+    <%}%>
+</body>
+</html>

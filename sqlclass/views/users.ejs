@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <!-- <style>
+      table,td,th{
+        border:1px solid black;
+      }
+    </style> -->
+</head>
+<body>
+        <!-- printing in the table format -->
+        <table border="black">
+            <tr>
+              <th>id</th>
+              <th>username</th>
+              <th>email</th>
+            </tr>
+            <%for (user of result){%>
+              <tr>
+                  <td><%=user.id%></td>
+                  <td><%=user.username%></td>
+                  <td><%=user.email%></td>
+                  <td>
+                      <form action="/users/<%=user.id%>/edit">
+                        <button>Edit username</button>
+                      </form>
+                  </td>
+                  <td>
+                      <form action="/users/<%=user.id%>/delete">
+                        <button>Delete user</button>
+                      </form>
+                  </td>
+              </tr>
+              <% } %>
+
+        </table>
+</body>
+</html>
+<!-- for (user of result){
+    <p>user.id</p>
+    <p>user.username</p>
+    <p>user.email</p>
+}
+[
+  {
+    id: '0093322a-1e16-4453-8042-f019c064333c',
+    username: 'Jade_Doyle-Kemmer',
+    email: 'Javonte99@hotmail.com',
+    password: '8KQzCIujTHTgE39'
+  },
+  {
+    id: '044f8840-1ec9-440f-9ff2-e880429eaf00',
+    username: 'Mittie90',
+    email: 'Vivianne74@hotmail.com',
+    password: '3dTTestxSgEEXzk'
+  },
+  {
+    id: '056906d6-bb46-44d4-93e9-938ee4463f3b',
+    username: 'Roger_Hickle89',
+    email: 'Timmy.Rutherford@gmail.com',
+    password: 'JnZOn0J0MPM3ZyA'
+  }
+] -->
